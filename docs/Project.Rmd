@@ -1,0 +1,122 @@
+---
+title: "Scientiic Programming Project"
+author: "Thales A. de M. Fernandes"
+date: '2022-08-15'
+bibliography: bibliography.bib
+output:
+  pdf_document: default
+  html_document: default
+---
+## 1. Introduction
+
+The detailed comparison of homologous protein structures can be
+used to infer pathways for evolutionary process, mechanisms for conformational changes, dynamics, internal motions and intrinsic dynamics, structure rearrangements, and conformational and allosteric mechanisms. The increasing availability of high-resolution protein structures allows the integration of molecular structure, dynamics and evolution analysis. 
+
+In this context, this project aimed to process, organize and
+explore structure and sequence data using bio3d package @grant2006bio3d @skjaerven2014integrating @grant2021bio3d. The goals of this project are read and write structures, perform atom summaries, atom selection, re-orientation, superposition, clustering, distance matrix analysis, structure and sequence conservation analysis, and principal component analysis (PCA) from Protein Data Bank (PDB) database @berman2000protein.
+
+```{r, echo=FALSE}
+library(bio3d)
+library(msa)
+```
+
+## 2. Exploratory data analysis of protein structure and sequence
+
+The (PBD) is a database of protein structures grouped in .PDB files, which contains a list of all atoms, the x, y, z coordinates and secondary structure elements. 
+
+```{r, echo= FALSE}
+#Read a PDB file 
+pdb <- read.pdb("4q21")
+```
+
+```{r}
+print(pdb)
+
+attributes(pdb)
+
+head(pdb$atom)
+
+plot.bio3d(pdb$atom$b[pdb$calpha], sse=pdb, typ="l", ylab="B-factor") #Plotting the B-factor
+
+#Write a PDB object
+
+b.inds <- atom.select(pdb, "back") #selecting the backbone atoms
+backpdb <- trim.pdb(pdb, b.inds) #creating a new object of backbone atoms
+write.pdb(backpdb, file="~/project/data/processed/4q21_back.pdb") #write a .PDB file
+
+#Identification of dynamic domains 
+pdb <- read.pdb("1d1d", multi=TRUE) # Read multi-model PDB file
+gs <- geostas(pdb)
+plot(gs)
+```
+
+## 3. Comparative analysis of protein structures
+
+### 3.1. Structure search and selection
+
+From the protein sequence or database identifier, related structures can be collected from the PDB database.
+
+In the example below, structures correlated with protein kinase A (PDB: 1L3R) are identified, annotated and downloaded.
+
+```{r, echo = FALSE}
+aa <- get.seq("1L3R_E", outfile = "~/project/data/raw/seqs.fasta") #Obtain the protein sequence
+
+blast <- blast.pdb(aa) #find similar sequences using BLAST sequence alignment algorithm
+
+hits <- plot(blast) #Plot the BLAST results
+
+annotation <- pdb.annotate(hits) #Annotate the BLAST results into the variable "annotation"
+
+pdb.id <- with(annotation, subset(hits$pdb.id,resolution<=3)) #Filtering structures by resolution < 3
+
+files <- get.pdb(pdb.id, path="~/project/data/raw", split=TRUE) #Download protein structures and split into single chains
+```
+### 3.2. Multiple Sequence Alignment
+
+In this step, the selected structures are submitted to multiple sequence alignment algorithm using MSA package @bodenhofer2015msa.
+
+```{r, echo = FALSE}
+pdbs <- pdbaln(files, exefile = "msa", outfile = "aln.fa") # Align protein structures present in files variable
+plot(pdbs)
+
+```
+
+### 3.3. Structure Fitting and analysis
+
+In this section, the aligned structures are superposed based on the invariant structure core. The analysis involves individual residue fluctuations (RMSF) and overall structural deviations (RMSD).
+
+```{r, echo = FALSE}
+cores <- core.find(pdbs) #Find the core in the aligned structures
+xyz <- pdbfit(pdbs, inds=cores) #Obtain the coordinates of the core
+```
+
+### 3.4. Principal Component Analysis
+
+In this step, the superimposed structures are compared using principal component analysis (PCA). The PCA correspond to a powerful multivariate statistical technique to reduce the dimensionality of complex data into principal components (PCs). The PCA highliths the patterns and relashionships present in protein structures transforminc atomic coordinates into PCs that represent directions where the structures displays largest variances. 
+
+```{r, echo=FALSE}
+#Apply PCA for the aligned and non-gaped structures
+pc <- pca(xyz, rm.gaps=TRUE)
+
+#Structure clustering in the PC1-PC2 plane
+d <- dist(pc$z[, 1:2]) #Specifying the PCs
+hc <- hclust(d) #Clustering
+hclustplot(hc, k=2, labels=pdb.id) #Plotting the clustering
+grps <- cutree(hc, k=2)
+
+#Generate conformer plot, scree plot, and residue loadings plot
+plot(pc, col=grps) #Plotting the PCA
+plot.bio3d(pc$au[, 1], sse=pdbs2sse(pdbs), ylab="Loadings")
+
+#Saving a  trajectory showing the collective motion defined by PC1
+mktrj(pc, pc=1, file="~/project/data/processed/pc_1.pdb")
+```
+
+## 4. Document and session details
+
+These document represent the project from the Scientific Programming curse from Serrapilheira/ICTP-SAIFR Training Program in Quantitative Biology and Ecology
+```{r}
+sessionInfo()
+```
+
+## 5. References

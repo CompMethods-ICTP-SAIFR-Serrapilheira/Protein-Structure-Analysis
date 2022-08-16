@@ -1,0 +1,1317 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Scientiic Programming Project},
+  pdfauthor={Thales A. de M. Fernandes},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Scientiic Programming Project}
+\author{Thales A. de M. Fernandes}
+\date{2022-08-15}
+
+\begin{document}
+\maketitle
+
+\hypertarget{introduction}{%
+\subsection{1. Introduction}\label{introduction}}
+
+The detailed comparison of homologous protein structures can be used to
+infer pathways for evolutionary process, mechanisms for conformational
+changes, dynamics, internal motions and intrinsic dynamics, structure
+rearrangements, and conformational and allosteric mechanisms. The
+increasing availability of high-resolution protein structures allows the
+integration of molecular structure, dynamics and evolution analysis.
+
+In this context, this project aimed to process, organize and explore
+structure and sequence data using bio3d package Grant et al. (2006)
+Skjærven et al. (2014) Grant, Skjærven, and Yao (2021). The goals of
+this project are read and write structures, perform atom summaries, atom
+selection, re-orientation, superposition, clustering, distance matrix
+analysis, structure and sequence conservation analysis, and principal
+component analysis (PCA) from Protein Data Bank (PDB) database Berman et
+al. (2000).
+
+\begin{verbatim}
+## Carregando pacotes exigidos: Biostrings
+\end{verbatim}
+
+\begin{verbatim}
+## Carregando pacotes exigidos: BiocGenerics
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'BiocGenerics'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     IQR, mad, sd, var, xtabs
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     anyDuplicated, append, as.data.frame, basename, cbind, colnames,
+##     dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
+##     grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
+##     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+##     rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
+##     union, unique, unsplit, which.max, which.min
+\end{verbatim}
+
+\begin{verbatim}
+## Carregando pacotes exigidos: S4Vectors
+\end{verbatim}
+
+\begin{verbatim}
+## Carregando pacotes exigidos: stats4
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'S4Vectors'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     expand.grid, I, unname
+\end{verbatim}
+
+\begin{verbatim}
+## Carregando pacotes exigidos: IRanges
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'IRanges'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:bio3d':
+## 
+##     trim
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:grDevices':
+## 
+##     windows
+\end{verbatim}
+
+\begin{verbatim}
+## Carregando pacotes exigidos: XVector
+\end{verbatim}
+
+\begin{verbatim}
+## Carregando pacotes exigidos: GenomeInfoDb
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'Biostrings'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:bio3d':
+## 
+##     mask
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:base':
+## 
+##     strsplit
+\end{verbatim}
+
+\hypertarget{exploratory-data-analysis-of-protein-structure-and-sequence}{%
+\subsection{2. Exploratory data analysis of protein structure and
+sequence}\label{exploratory-data-analysis-of-protein-structure-and-sequence}}
+
+The (PBD) is a database of protein structures grouped in .PDB files,
+which contains a list of all atoms, the x, y, z coordinates and
+secondary structure elements.
+
+\begin{verbatim}
+##   Note: Accessing on-line PDB file
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(pdb)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Call:  read.pdb(file = "4q21")
+## 
+##    Total Models#: 1
+##      Total Atoms#: 1447,  XYZs#: 4341  Chains#: 1  (values: A)
+## 
+##      Protein Atoms#: 1340  (residues/Calpha atoms#: 168)
+##      Nucleic acid Atoms#: 0  (residues/phosphate atoms#: 0)
+## 
+##      Non-protein/nucleic Atoms#: 107  (residues: 80)
+##      Non-protein/nucleic resid values: [ GDP (1), HOH (78), MG (1) ]
+## 
+##    Protein sequence:
+##       MTEYKLVVVGAGGVGKSALTIQLIQNHFVDEYDPTIEDSYRKQVVIDGETCLLDILDTAG
+##       QEEYSAMRDQYMRTGEGFLCVFAINNTKSFEDIHQYREQIKRVKDSDDVPMVLVGNKCDL
+##       AARTVESRQAQDLARSYGIPYIETSAKTRQGVEDAFYTLVREIRQHKL
+## 
+## + attr: atom, xyz, seqres, helix, sheet,
+##         calpha, remark, call
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{attributes}\NormalTok{(pdb)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $names
+## [1] "atom"   "xyz"    "seqres" "helix"  "sheet"  "calpha" "remark" "call"  
+## 
+## $class
+## [1] "pdb" "sse"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(pdb}\SpecialCharTok{$}\NormalTok{atom)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   type eleno elety  alt resid chain resno insert      x      y      z o     b
+## 1 ATOM     1     N <NA>   MET     A     1   <NA> 64.080 50.529 32.509 1 28.66
+## 2 ATOM     2    CA <NA>   MET     A     1   <NA> 64.044 51.615 33.423 1 29.19
+## 3 ATOM     3     C <NA>   MET     A     1   <NA> 63.722 52.849 32.671 1 30.27
+## 4 ATOM     4     O <NA>   MET     A     1   <NA> 64.359 53.119 31.662 1 34.93
+## 5 ATOM     5    CB <NA>   MET     A     1   <NA> 65.373 51.805 34.158 1 28.49
+## 6 ATOM     6    CG <NA>   MET     A     1   <NA> 65.122 52.780 35.269 1 32.18
+##   segid elesy charge
+## 1  <NA>     N   <NA>
+## 2  <NA>     C   <NA>
+## 3  <NA>     C   <NA>
+## 4  <NA>     O   <NA>
+## 5  <NA>     C   <NA>
+## 6  <NA>     C   <NA>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot.bio3d}\NormalTok{(pdb}\SpecialCharTok{$}\NormalTok{atom}\SpecialCharTok{$}\NormalTok{b[pdb}\SpecialCharTok{$}\NormalTok{calpha], }\AttributeTok{sse=}\NormalTok{pdb, }\AttributeTok{typ=}\StringTok{"l"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"B{-}factor"}\NormalTok{) }\CommentTok{\#Plotting the B{-}factor}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Project_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Write a PDB object}
+
+\NormalTok{b.inds }\OtherTok{\textless{}{-}} \FunctionTok{atom.select}\NormalTok{(pdb, }\StringTok{"back"}\NormalTok{) }\CommentTok{\#selecting the backbone atoms}
+\NormalTok{backpdb }\OtherTok{\textless{}{-}} \FunctionTok{trim.pdb}\NormalTok{(pdb, b.inds) }\CommentTok{\#creating a new object of backbone atoms}
+\FunctionTok{write.pdb}\NormalTok{(backpdb, }\AttributeTok{file=}\StringTok{"\textasciitilde{}/project/data/processed/4q21\_back.pdb"}\NormalTok{) }\CommentTok{\#write a .PDB file}
+
+\CommentTok{\#Identification of dynamic domains }
+\NormalTok{pdb }\OtherTok{\textless{}{-}} \FunctionTok{read.pdb}\NormalTok{(}\StringTok{"1d1d"}\NormalTok{, }\AttributeTok{multi=}\ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# Read multi{-}model PDB file}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Note: Accessing on-line PDB file
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gs }\OtherTok{\textless{}{-}} \FunctionTok{geostas}\NormalTok{(pdb)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   .. 220 'calpha' atoms selected
+##   .. 'xyz' coordinate data with 20 frames 
+##   .. 'fit=TRUE': running function 'core.find'
+##   .. coordinates are superimposed to core region
+##   .. calculating atomic movement similarity matrix ('amsm.xyz()') 
+##   .. dimensions of AMSM are 220x220
+##   .. clustering AMSM using 'kmeans' 
+##   .. converting indices to match input 'pdb' object 
+##      (additional attribute 'atomgrps' generated)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(gs)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Project_files/figure-latex/unnamed-chunk-3-2.pdf}
+
+\hypertarget{comparative-analysis-of-protein-structures}{%
+\subsection{3. Comparative analysis of protein
+structures}\label{comparative-analysis-of-protein-structures}}
+
+\hypertarget{structure-search-and-selection}{%
+\subsubsection{3.1. Structure search and
+selection}\label{structure-search-and-selection}}
+
+From the protein sequence or database identifier, related structures can
+be collected from the PDB database.
+
+In the example below, structures correlated with protein kinase A (PDB:
+1L3R) are identified, annotated and downloaded.
+
+\begin{verbatim}
+## Warning in get.seq("1L3R_E", outfile = "~/project/data/raw/seqs.fasta"):
+## Removing existing file: ~/project/data/raw/seqs.fasta
+\end{verbatim}
+
+\begin{verbatim}
+## Fetching... Please wait. Done.
+\end{verbatim}
+
+\begin{verbatim}
+##  Searching ... please wait (updates every 5 seconds) RID = FNWPU5TB01R 
+##  .
+##  Reporting 2451 hits
+\end{verbatim}
+
+\begin{verbatim}
+##   * Possible cutoff values:    709 -3 
+##             Yielding Nhits:    83 2451 
+## 
+##   * Chosen cutoff value of:    709 
+##             Yielding Nhits:    83
+\end{verbatim}
+
+\includegraphics{Project_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/2ERZ.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/7E0Z.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/3X2U.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1ATP.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/2CPK.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4IAC.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1BKX.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/3O7L.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1APM.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1SYK.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4DFY.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1L3R.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4DG3.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/3QAM.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1JBP.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/3QAL.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/3FHI.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4NTS.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1RDQ.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4DFX.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1J3H.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/2QUR.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/6Y05.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/6F14.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/5N3N.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/6EM7.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/5N37.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/5NW8.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4WIH.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/5N1F.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/3MVJ.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/6C0U.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/3AGM.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/3AGL.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4WB5.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/3NX8.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/2F7E.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/2C1A.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1YDR.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/5VI9.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1SVH.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4WB6.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1CTP.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/3L9M.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/2JDS.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1Q8T.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/3ZO2.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1XH7.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1Q8W.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/3DND.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1Q24.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1CDK.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1CMK.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4Z84.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/2JDT.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1Q61.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1SZM.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/2GNJ.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1SMH.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/2UVY.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/2VO0.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4C33.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4C34.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/3AMA.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/2GNF.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/6FRX.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/2GNG.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/1XH9.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/2GU8.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/6MM5.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4O21.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/5N23.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4WB7.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4AE6.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4AE9.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/4WB8.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in get.pdb(pdb.id, path = "~/project/data/raw", split = TRUE): ~/
+## project/data/raw/2UZT.pdb exists. Skipping download
+\end{verbatim}
+
+\begin{verbatim}
+##   |                                                                              |                                                                      |   0%  |                                                                              |=                                                                     |   1%  |                                                                              |==                                                                    |   3%  |                                                                              |===                                                                   |   4%  |                                                                              |====                                                                  |   5%  |                                                                              |=====                                                                 |   6%  |                                                                              |=====                                                                 |   8%  |                                                                              |======                                                                |   9%  |                                                                              |=======                                                               |  10%  |                                                                              |========                                                              |  12%  |                                                                              |=========                                                             |  13%  |                                                                              |==========                                                            |  14%  |                                                                              |===========                                                           |  16%  |                                                                              |============                                                          |  17%  |                                                                              |=============                                                         |  18%  |                                                                              |==============                                                        |  19%  |                                                                              |===============                                                       |  21%  |                                                                              |===============                                                       |  22%  |                                                                              |================                                                      |  23%  |                                                                              |=================                                                     |  25%  |                                                                              |==================                                                    |  26%  |                                                                              |===================                                                   |  27%  |                                                                              |====================                                                  |  29%  |                                                                              |=====================                                                 |  30%  |                                                                              |======================                                                |  31%  |                                                                              |=======================                                               |  32%  |                                                                              |========================                                              |  34%  |                                                                              |=========================                                             |  35%  |                                                                              |=========================                                             |  36%  |                                                                              |==========================                                            |  38%  |                                                                              |===========================                                           |  39%  |                                                                              |============================                                          |  40%  |                                                                              |=============================                                         |  42%  |                                                                              |==============================                                        |  43%  |                                                                              |===============================                                       |  44%  |                                                                              |================================                                      |  45%  |                                                                              |=================================                                     |  47%  |                                                                              |==================================                                    |  48%  |                                                                              |===================================                                   |  49%  |                                                                              |===================================                                   |  51%  |                                                                              |====================================                                  |  52%  |                                                                              |=====================================                                 |  53%  |                                                                              |======================================                                |  54%  |                                                                              |======================================                                |  55%  |                                                                              |=======================================                               |  56%  |                                                                              |========================================                              |  57%  |                                                                              |=========================================                             |  58%  |                                                                              |==========================================                            |  60%  |                                                                              |===========================================                           |  61%  |                                                                              |============================================                          |  62%  |                                                                              |=============================================                         |  64%  |                                                                              |=============================================                         |  65%  |                                                                              |==============================================                        |  66%  |                                                                              |===============================================                       |  68%  |                                                                              |================================================                      |  69%  |                                                                              |=================================================                     |  70%  |                                                                              |==================================================                    |  71%  |                                                                              |===================================================                   |  73%  |                                                                              |====================================================                  |  74%  |                                                                              |=====================================================                 |  75%  |                                                                              |======================================================                |  77%  |                                                                              |=======================================================               |  78%  |                                                                              |=======================================================               |  79%  |                                                                              |========================================================              |  81%  |                                                                              |=========================================================             |  82%  |                                                                              |==========================================================            |  83%  |                                                                              |===========================================================           |  84%  |                                                                              |============================================================          |  86%  |                                                                              |=============================================================         |  87%  |                                                                              |==============================================================        |  88%  |                                                                              |===============================================================       |  90%  |                                                                              |================================================================      |  91%  |                                                                              |=================================================================     |  92%  |                                                                              |=================================================================     |  94%  |                                                                              |==================================================================    |  95%  |                                                                              |===================================================================   |  96%  |                                                                              |====================================================================  |  97%  |                                                                              |===================================================================== |  99%  |                                                                              |======================================================================| 100%
+\end{verbatim}
+
+\hypertarget{multiple-sequence-alignment}{%
+\subsubsection{3.2. Multiple Sequence
+Alignment}\label{multiple-sequence-alignment}}
+
+In this step, the selected structures are submitted to multiple sequence
+alignment algorithm using MSA package Bodenhofer et al. (2015).
+
+\begin{verbatim}
+## Reading PDB files:
+## ~/project/data/raw/split_chain/2ERZ_E.pdb
+## ~/project/data/raw/split_chain/7E0Z_A.pdb
+## ~/project/data/raw/split_chain/3X2U_A.pdb
+## ~/project/data/raw/split_chain/1ATP_E.pdb
+## ~/project/data/raw/split_chain/2CPK_E.pdb
+## ~/project/data/raw/split_chain/4IAC_A.pdb
+## ~/project/data/raw/split_chain/1BKX_A.pdb
+## ~/project/data/raw/split_chain/3O7L_B.pdb
+## ~/project/data/raw/split_chain/1APM_E.pdb
+## ~/project/data/raw/split_chain/1SYK_A.pdb
+## ~/project/data/raw/split_chain/4DFY_A.pdb
+## ~/project/data/raw/split_chain/1L3R_E.pdb
+## ~/project/data/raw/split_chain/4DG3_E.pdb
+## ~/project/data/raw/split_chain/3QAM_E.pdb
+## ~/project/data/raw/split_chain/1JBP_E.pdb
+## ~/project/data/raw/split_chain/3QAL_E.pdb
+## ~/project/data/raw/split_chain/3FHI_A.pdb
+## ~/project/data/raw/split_chain/4NTS_A.pdb
+## ~/project/data/raw/split_chain/1RDQ_E.pdb
+## ~/project/data/raw/split_chain/4DFX_E.pdb
+## ~/project/data/raw/split_chain/1J3H_A.pdb
+## ~/project/data/raw/split_chain/2QUR_A.pdb
+## ~/project/data/raw/split_chain/6Y05_A.pdb
+## ~/project/data/raw/split_chain/6F14_A.pdb
+## ~/project/data/raw/split_chain/5N3N_A.pdb
+## ~/project/data/raw/split_chain/6EM7_A.pdb
+## ~/project/data/raw/split_chain/5N37_A.pdb
+## ~/project/data/raw/split_chain/5NW8_A.pdb
+## ~/project/data/raw/split_chain/4WIH_A.pdb
+## ~/project/data/raw/split_chain/5N1F_A.pdb
+## ~/project/data/raw/split_chain/3MVJ_A.pdb
+## ~/project/data/raw/split_chain/6C0U_A.pdb
+## ~/project/data/raw/split_chain/3AGM_A.pdb
+## ~/project/data/raw/split_chain/3AGL_A.pdb
+## ~/project/data/raw/split_chain/4WB5_A.pdb
+## ~/project/data/raw/split_chain/3NX8_A.pdb
+## ~/project/data/raw/split_chain/2F7E_E.pdb
+## ~/project/data/raw/split_chain/2C1A_A.pdb
+## ~/project/data/raw/split_chain/1YDR_E.pdb
+## ~/project/data/raw/split_chain/5VI9_A.pdb
+## ~/project/data/raw/split_chain/1SVH_A.pdb
+## ~/project/data/raw/split_chain/4WB6_B.pdb
+## ~/project/data/raw/split_chain/4WB6_A.pdb
+## ~/project/data/raw/split_chain/1CTP_E.pdb
+## ~/project/data/raw/split_chain/3L9M_A.pdb
+## ~/project/data/raw/split_chain/2JDS_A.pdb
+## ~/project/data/raw/split_chain/1Q8T_A.pdb
+## ~/project/data/raw/split_chain/3ZO2_A.pdb
+## ~/project/data/raw/split_chain/1XH7_A.pdb
+## ~/project/data/raw/split_chain/1Q8W_A.pdb
+## ~/project/data/raw/split_chain/3DND_A.pdb
+## ~/project/data/raw/split_chain/1Q24_A.pdb
+## ~/project/data/raw/split_chain/1CDK_A.pdb
+## ~/project/data/raw/split_chain/1CMK_E.pdb
+## ~/project/data/raw/split_chain/4Z84_A.pdb
+## ~/project/data/raw/split_chain/2JDT_A.pdb
+## ~/project/data/raw/split_chain/1Q61_A.pdb
+## ~/project/data/raw/split_chain/1SZM_A.pdb
+## ~/project/data/raw/split_chain/2GNJ_A.pdb
+## ~/project/data/raw/split_chain/1SMH_A.pdb
+## ~/project/data/raw/split_chain/2UVY_A.pdb
+## ~/project/data/raw/split_chain/2VO0_A.pdb
+## ~/project/data/raw/split_chain/4C33_A.pdb
+## ~/project/data/raw/split_chain/4C34_A.pdb
+## ~/project/data/raw/split_chain/3AMA_A.pdb
+## ~/project/data/raw/split_chain/2GNF_A.pdb
+## ~/project/data/raw/split_chain/6FRX_A.pdb
+## ~/project/data/raw/split_chain/2GNG_A.pdb
+## ~/project/data/raw/split_chain/1XH9_A.pdb
+## ~/project/data/raw/split_chain/2GU8_A.pdb
+## ~/project/data/raw/split_chain/6MM5_E.pdb
+## ~/project/data/raw/split_chain/4O21_A.pdb
+## ~/project/data/raw/split_chain/5N23_A.pdb
+## ~/project/data/raw/split_chain/4WB7_A.pdb
+## ~/project/data/raw/split_chain/4AE6_A.pdb
+## ~/project/data/raw/split_chain/4AE9_A.pdb
+## ~/project/data/raw/split_chain/4WB8_A.pdb
+## ~/project/data/raw/split_chain/2UZT_A.pdb
+## ..   PDB has ALT records, taking A only, rm.alt=TRUE
+## ......   PDB has ALT records, taking A only, rm.alt=TRUE
+## ..........   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## ...   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## .....   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## ...........   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## ...   PDB has ALT records, taking A only, rm.alt=TRUE
+## ....   PDB has ALT records, taking A only, rm.alt=TRUE
+## ........   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## .....   PDB has ALT records, taking A only, rm.alt=TRUE
+## ..   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## .   PDB has ALT records, taking A only, rm.alt=TRUE
+## ..
+## 
+## Extracting sequences
+## 
+## pdb/seq: 1   name: ~/project/data/raw/split_chain/2ERZ_E.pdb 
+## pdb/seq: 2   name: ~/project/data/raw/split_chain/7E0Z_A.pdb 
+## pdb/seq: 3   name: ~/project/data/raw/split_chain/3X2U_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 4   name: ~/project/data/raw/split_chain/1ATP_E.pdb 
+## pdb/seq: 5   name: ~/project/data/raw/split_chain/2CPK_E.pdb 
+## pdb/seq: 6   name: ~/project/data/raw/split_chain/4IAC_A.pdb 
+## pdb/seq: 7   name: ~/project/data/raw/split_chain/1BKX_A.pdb 
+## pdb/seq: 8   name: ~/project/data/raw/split_chain/3O7L_B.pdb 
+## pdb/seq: 9   name: ~/project/data/raw/split_chain/1APM_E.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 10   name: ~/project/data/raw/split_chain/1SYK_A.pdb 
+## pdb/seq: 11   name: ~/project/data/raw/split_chain/4DFY_A.pdb 
+## pdb/seq: 12   name: ~/project/data/raw/split_chain/1L3R_E.pdb 
+## pdb/seq: 13   name: ~/project/data/raw/split_chain/4DG3_E.pdb 
+## pdb/seq: 14   name: ~/project/data/raw/split_chain/3QAM_E.pdb 
+## pdb/seq: 15   name: ~/project/data/raw/split_chain/1JBP_E.pdb 
+## pdb/seq: 16   name: ~/project/data/raw/split_chain/3QAL_E.pdb 
+## pdb/seq: 17   name: ~/project/data/raw/split_chain/3FHI_A.pdb 
+## pdb/seq: 18   name: ~/project/data/raw/split_chain/4NTS_A.pdb 
+## pdb/seq: 19   name: ~/project/data/raw/split_chain/1RDQ_E.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 20   name: ~/project/data/raw/split_chain/4DFX_E.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 21   name: ~/project/data/raw/split_chain/1J3H_A.pdb 
+## pdb/seq: 22   name: ~/project/data/raw/split_chain/2QUR_A.pdb 
+## pdb/seq: 23   name: ~/project/data/raw/split_chain/6Y05_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 24   name: ~/project/data/raw/split_chain/6F14_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 25   name: ~/project/data/raw/split_chain/5N3N_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 26   name: ~/project/data/raw/split_chain/6EM7_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 27   name: ~/project/data/raw/split_chain/5N37_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 28   name: ~/project/data/raw/split_chain/5NW8_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 29   name: ~/project/data/raw/split_chain/4WIH_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 30   name: ~/project/data/raw/split_chain/5N1F_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 31   name: ~/project/data/raw/split_chain/3MVJ_A.pdb 
+## pdb/seq: 32   name: ~/project/data/raw/split_chain/6C0U_A.pdb 
+## pdb/seq: 33   name: ~/project/data/raw/split_chain/3AGM_A.pdb 
+## pdb/seq: 34   name: ~/project/data/raw/split_chain/3AGL_A.pdb 
+## pdb/seq: 35   name: ~/project/data/raw/split_chain/4WB5_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 36   name: ~/project/data/raw/split_chain/3NX8_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 37   name: ~/project/data/raw/split_chain/2F7E_E.pdb 
+## pdb/seq: 38   name: ~/project/data/raw/split_chain/2C1A_A.pdb 
+## pdb/seq: 39   name: ~/project/data/raw/split_chain/1YDR_E.pdb 
+## pdb/seq: 40   name: ~/project/data/raw/split_chain/5VI9_A.pdb 
+## pdb/seq: 41   name: ~/project/data/raw/split_chain/1SVH_A.pdb 
+## pdb/seq: 42   name: ~/project/data/raw/split_chain/4WB6_B.pdb 
+## pdb/seq: 43   name: ~/project/data/raw/split_chain/4WB6_A.pdb 
+## pdb/seq: 44   name: ~/project/data/raw/split_chain/1CTP_E.pdb 
+## pdb/seq: 45   name: ~/project/data/raw/split_chain/3L9M_A.pdb 
+## pdb/seq: 46   name: ~/project/data/raw/split_chain/2JDS_A.pdb 
+## pdb/seq: 47   name: ~/project/data/raw/split_chain/1Q8T_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 48   name: ~/project/data/raw/split_chain/3ZO2_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 49   name: ~/project/data/raw/split_chain/1XH7_A.pdb 
+## pdb/seq: 50   name: ~/project/data/raw/split_chain/1Q8W_A.pdb 
+## pdb/seq: 51   name: ~/project/data/raw/split_chain/3DND_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 52   name: ~/project/data/raw/split_chain/1Q24_A.pdb 
+## pdb/seq: 53   name: ~/project/data/raw/split_chain/1CDK_A.pdb 
+## pdb/seq: 54   name: ~/project/data/raw/split_chain/1CMK_E.pdb 
+## pdb/seq: 55   name: ~/project/data/raw/split_chain/4Z84_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 56   name: ~/project/data/raw/split_chain/2JDT_A.pdb 
+## pdb/seq: 57   name: ~/project/data/raw/split_chain/1Q61_A.pdb 
+## pdb/seq: 58   name: ~/project/data/raw/split_chain/1SZM_A.pdb 
+## pdb/seq: 59   name: ~/project/data/raw/split_chain/2GNJ_A.pdb 
+## pdb/seq: 60   name: ~/project/data/raw/split_chain/1SMH_A.pdb 
+## pdb/seq: 61   name: ~/project/data/raw/split_chain/2UVY_A.pdb 
+## pdb/seq: 62   name: ~/project/data/raw/split_chain/2VO0_A.pdb 
+## pdb/seq: 63   name: ~/project/data/raw/split_chain/4C33_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 64   name: ~/project/data/raw/split_chain/4C34_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 65   name: ~/project/data/raw/split_chain/3AMA_A.pdb 
+## pdb/seq: 66   name: ~/project/data/raw/split_chain/2GNF_A.pdb 
+## pdb/seq: 67   name: ~/project/data/raw/split_chain/6FRX_A.pdb 
+## pdb/seq: 68   name: ~/project/data/raw/split_chain/2GNG_A.pdb 
+## pdb/seq: 69   name: ~/project/data/raw/split_chain/1XH9_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 70   name: ~/project/data/raw/split_chain/2GU8_A.pdb 
+## pdb/seq: 71   name: ~/project/data/raw/split_chain/6MM5_E.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 72   name: ~/project/data/raw/split_chain/4O21_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 73   name: ~/project/data/raw/split_chain/5N23_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 74   name: ~/project/data/raw/split_chain/4WB7_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 75   name: ~/project/data/raw/split_chain/4AE6_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 76   name: ~/project/data/raw/split_chain/4AE9_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 77   name: ~/project/data/raw/split_chain/4WB8_A.pdb 
+##    PDB has ALT records, taking A only, rm.alt=TRUE
+## pdb/seq: 78   name: ~/project/data/raw/split_chain/2UZT_A.pdb
+\end{verbatim}
+
+\includegraphics{Project_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\hypertarget{structure-fitting-and-analysis}{%
+\subsubsection{3.3. Structure Fitting and
+analysis}\label{structure-fitting-and-analysis}}
+
+In this section, the aligned structures are superposed based on the
+invariant structure core. The analysis involves individual residue
+fluctuations (RMSF) and overall structural deviations (RMSD).
+
+\begin{verbatim}
+##  core size 283 of 284  vol = 50.314 
+##  core size 282 of 284  vol = 48.926 
+##  core size 281 of 284  vol = 46.659 
+##  core size 280 of 284  vol = 45.272 
+##  core size 279 of 284  vol = 44.19 
+##  core size 278 of 284  vol = 43.226 
+##  core size 277 of 284  vol = 42.34 
+##  core size 276 of 284  vol = 40.898 
+##  core size 275 of 284  vol = 39.991 
+##  core size 274 of 284  vol = 38.405 
+##  core size 273 of 284  vol = 37.695 
+##  core size 272 of 284  vol = 37.009 
+##  core size 271 of 284  vol = 35.602 
+##  core size 270 of 284  vol = 35.007 
+##  core size 269 of 284  vol = 33.502 
+##  core size 268 of 284  vol = 32.254 
+##  core size 267 of 284  vol = 30.82 
+##  core size 266 of 284  vol = 29.484 
+##  core size 265 of 284  vol = 28.421 
+##  core size 264 of 284  vol = 27.177 
+##  core size 263 of 284  vol = 26.63 
+##  core size 262 of 284  vol = 26.125 
+##  core size 261 of 284  vol = 25.184 
+##  core size 260 of 284  vol = 24.192 
+##  core size 259 of 284  vol = 23.74 
+##  core size 258 of 284  vol = 23.289 
+##  core size 257 of 284  vol = 22.377 
+##  core size 256 of 284  vol = 21.752 
+##  core size 255 of 284  vol = 21.248 
+##  core size 254 of 284  vol = 20.833 
+##  core size 253 of 284  vol = 20.376 
+##  core size 252 of 284  vol = 19.913 
+##  core size 251 of 284  vol = 19.413 
+##  core size 250 of 284  vol = 18.966 
+##  core size 249 of 284  vol = 18.253 
+##  core size 248 of 284  vol = 17.564 
+##  core size 247 of 284  vol = 17.171 
+##  core size 246 of 284  vol = 16.795 
+##  core size 245 of 284  vol = 16.398 
+##  core size 244 of 284  vol = 15.951 
+##  core size 243 of 284  vol = 15.554 
+##  core size 242 of 284  vol = 15.161 
+##  core size 241 of 284  vol = 14.782 
+##  core size 240 of 284  vol = 14.397 
+##  core size 239 of 284  vol = 14.075 
+##  core size 238 of 284  vol = 13.753 
+##  core size 237 of 284  vol = 13.27 
+##  core size 236 of 284  vol = 12.961 
+##  core size 235 of 284  vol = 12.584 
+##  core size 234 of 284  vol = 12.262 
+##  core size 233 of 284  vol = 11.925 
+##  core size 232 of 284  vol = 11.636 
+##  core size 231 of 284  vol = 11.334 
+##  core size 230 of 284  vol = 11.053 
+##  core size 229 of 284  vol = 10.733 
+##  core size 228 of 284  vol = 10.422 
+##  core size 227 of 284  vol = 10.135 
+##  core size 226 of 284  vol = 9.859 
+##  core size 225 of 284  vol = 9.58 
+##  core size 224 of 284  vol = 9.314 
+##  core size 223 of 284  vol = 9.024 
+##  core size 222 of 284  vol = 8.771 
+##  core size 221 of 284  vol = 8.507 
+##  core size 220 of 284  vol = 8.269 
+##  core size 219 of 284  vol = 8.03 
+##  core size 218 of 284  vol = 7.806 
+##  core size 217 of 284  vol = 7.586 
+##  core size 216 of 284  vol = 7.359 
+##  core size 215 of 284  vol = 7.142 
+##  core size 214 of 284  vol = 6.911 
+##  core size 213 of 284  vol = 6.683 
+##  core size 212 of 284  vol = 6.448 
+##  core size 211 of 284  vol = 6.219 
+##  core size 210 of 284  vol = 5.999 
+##  core size 209 of 284  vol = 5.779 
+##  core size 208 of 284  vol = 5.515 
+##  core size 207 of 284  vol = 5.303 
+##  core size 206 of 284  vol = 5.075 
+##  core size 205 of 284  vol = 4.894 
+##  core size 204 of 284  vol = 4.744 
+##  core size 203 of 284  vol = 4.586 
+##  core size 202 of 284  vol = 4.426 
+##  core size 201 of 284  vol = 4.266 
+##  core size 200 of 284  vol = 4.103 
+##  core size 199 of 284  vol = 3.962 
+##  core size 198 of 284  vol = 3.819 
+##  core size 197 of 284  vol = 3.673 
+##  core size 196 of 284  vol = 3.535 
+##  core size 195 of 284  vol = 3.392 
+##  core size 194 of 284  vol = 3.262 
+##  core size 193 of 284  vol = 3.143 
+##  core size 192 of 284  vol = 3.034 
+##  core size 191 of 284  vol = 2.926 
+##  core size 190 of 284  vol = 2.832 
+##  core size 189 of 284  vol = 2.737 
+##  core size 188 of 284  vol = 2.644 
+##  core size 187 of 284  vol = 2.564 
+##  core size 186 of 284  vol = 2.482 
+##  core size 185 of 284  vol = 2.404 
+##  core size 184 of 284  vol = 2.326 
+##  core size 183 of 284  vol = 2.246 
+##  core size 182 of 284  vol = 2.17 
+##  core size 181 of 284  vol = 2.101 
+##  core size 180 of 284  vol = 2.038 
+##  core size 179 of 284  vol = 1.976 
+##  core size 178 of 284  vol = 1.915 
+##  core size 177 of 284  vol = 1.862 
+##  core size 176 of 284  vol = 1.809 
+##  core size 175 of 284  vol = 1.756 
+##  core size 174 of 284  vol = 1.706 
+##  core size 173 of 284  vol = 1.657 
+##  core size 172 of 284  vol = 1.608 
+##  core size 171 of 284  vol = 1.566 
+##  core size 170 of 284  vol = 1.524 
+##  core size 169 of 284  vol = 1.483 
+##  core size 168 of 284  vol = 1.442 
+##  core size 167 of 284  vol = 1.401 
+##  core size 166 of 284  vol = 1.362 
+##  core size 165 of 284  vol = 1.326 
+##  core size 164 of 284  vol = 1.291 
+##  core size 163 of 284  vol = 1.258 
+##  core size 162 of 284  vol = 1.227 
+##  core size 161 of 284  vol = 1.196 
+##  core size 160 of 284  vol = 1.166 
+##  core size 159 of 284  vol = 1.137 
+##  core size 158 of 284  vol = 1.11 
+##  core size 157 of 284  vol = 1.084 
+##  core size 156 of 284  vol = 1.059 
+##  core size 155 of 284  vol = 1.036 
+##  core size 154 of 284  vol = 1.012 
+##  core size 153 of 284  vol = 0.989 
+##  core size 152 of 284  vol = 0.967 
+##  core size 151 of 284  vol = 0.946 
+##  core size 150 of 284  vol = 0.925 
+##  core size 149 of 284  vol = 0.907 
+##  core size 148 of 284  vol = 0.887 
+##  core size 147 of 284  vol = 0.868 
+##  core size 146 of 284  vol = 0.85 
+##  core size 145 of 284  vol = 0.83 
+##  core size 144 of 284  vol = 0.812 
+##  core size 143 of 284  vol = 0.793 
+##  core size 142 of 284  vol = 0.776 
+##  core size 141 of 284  vol = 0.758 
+##  core size 140 of 284  vol = 0.742 
+##  core size 139 of 284  vol = 0.726 
+##  core size 138 of 284  vol = 0.711 
+##  core size 137 of 284  vol = 0.696 
+##  core size 136 of 284  vol = 0.68 
+##  core size 135 of 284  vol = 0.665 
+##  core size 134 of 284  vol = 0.651 
+##  core size 133 of 284  vol = 0.636 
+##  core size 132 of 284  vol = 0.621 
+##  core size 131 of 284  vol = 0.607 
+##  core size 130 of 284  vol = 0.593 
+##  core size 129 of 284  vol = 0.578 
+##  core size 128 of 284  vol = 0.565 
+##  core size 127 of 284  vol = 0.552 
+##  core size 126 of 284  vol = 0.54 
+##  core size 125 of 284  vol = 0.528 
+##  core size 124 of 284  vol = 0.516 
+##  core size 123 of 284  vol = 0.505 
+##  core size 122 of 284  vol = 0.494 
+##  FINISHED: Min vol ( 0.5 ) reached
+\end{verbatim}
+
+\hypertarget{principal-component-analysis}{%
+\subsubsection{3.4. Principal Component
+Analysis}\label{principal-component-analysis}}
+
+In this step, the superimposed structures are compared using principal
+component analysis (PCA). The PCA correspond to a powerful multivariate
+statistical technique to reduce the dimensionality of complex data into
+principal components (PCs). The PCA highliths the patterns and
+relashionships present in protein structures transforminc atomic
+coordinates into PCs that represent directions where the structures
+displays largest variances.
+
+\begin{verbatim}
+## NOTE: Removing 121 gap positions with missing coordinate data
+##       retaining 284 non-gap positions for analysis.
+\end{verbatim}
+
+\includegraphics{Project_files/figure-latex/unnamed-chunk-7-1.pdf}
+\includegraphics{Project_files/figure-latex/unnamed-chunk-7-2.pdf}
+
+\begin{verbatim}
+## Extracting SSE from pdbs$sse attribute
+\end{verbatim}
+
+\includegraphics{Project_files/figure-latex/unnamed-chunk-7-3.pdf}
+
+\hypertarget{document-and-session-details}{%
+\subsection{4. Document and session
+details}\label{document-and-session-details}}
+
+These document represent the project from the Scientific Programming
+curse from Serrapilheira/ICTP-SAIFR Training Program in Quantitative
+Biology and Ecology
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R version 4.2.0 (2022-04-22 ucrt)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 22000)
+## 
+## Matrix products: default
+## 
+## locale:
+## [1] LC_COLLATE=Portuguese_Brazil.utf8  LC_CTYPE=Portuguese_Brazil.utf8   
+## [3] LC_MONETARY=Portuguese_Brazil.utf8 LC_NUMERIC=C                      
+## [5] LC_TIME=Portuguese_Brazil.utf8    
+## 
+## attached base packages:
+## [1] stats4    stats     graphics  grDevices utils     datasets  methods  
+## [8] base     
+## 
+## other attached packages:
+## [1] msa_1.28.0          Biostrings_2.64.0   GenomeInfoDb_1.32.2
+## [4] XVector_0.36.0      IRanges_2.30.0      S4Vectors_0.34.0   
+## [7] BiocGenerics_0.42.0 bio3d_2.4-3        
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_1.0.9             rstudioapi_0.13        knitr_1.39            
+##  [4] magrittr_2.0.3         zlibbioc_1.42.0        lattice_0.20-45       
+##  [7] R6_2.5.1               rlang_1.0.4            fastmap_1.1.0         
+## [10] httr_1.4.3             highr_0.9              stringr_1.4.0         
+## [13] tools_4.2.0            parallel_4.2.0         grid_4.2.0            
+## [16] xfun_0.31              cli_3.3.0              htmltools_0.5.3       
+## [19] yaml_2.3.5             digest_0.6.29          crayon_1.5.1          
+## [22] GenomeInfoDbData_1.2.8 bitops_1.0-7           curl_4.3.2            
+## [25] RCurl_1.98-1.7         evaluate_0.15          rmarkdown_2.14        
+## [28] stringi_1.7.8          compiler_4.2.0         jsonlite_1.8.0
+\end{verbatim}
+
+\hypertarget{references}{%
+\subsection*{5. References}\label{references}}
+\addcontentsline{toc}{subsection}{5. References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-berman2000protein}{}}%
+Berman, Helen M, John Westbrook, Zukang Feng, Gary Gilliland, Talapady N
+Bhat, Helge Weissig, Ilya N Shindyalov, and Philip E Bourne. 2000.
+{``The Protein Data Bank.''} \emph{Nucleic Acids Research} 28 (1):
+235--42.
+
+\leavevmode\vadjust pre{\hypertarget{ref-bodenhofer2015msa}{}}%
+Bodenhofer, Ulrich, Enrico Bonatesta, Christoph Horejš-Kainrath, and
+Sepp Hochreiter. 2015. {``Msa: An r Package for Multiple Sequence
+Alignment.''} \emph{Bioinformatics} 31 (24): 3997--99.
+
+\leavevmode\vadjust pre{\hypertarget{ref-grant2006bio3d}{}}%
+Grant, Barry J, Ana PC Rodrigues, Karim M ElSawy, J Andrew McCammon, and
+Leo SD Caves. 2006. {``Bio3d: An r Package for the Comparative Analysis
+of Protein Structures.''} \emph{Bioinformatics} 22 (21): 2695--96.
+
+\leavevmode\vadjust pre{\hypertarget{ref-grant2021bio3d}{}}%
+Grant, Barry J, Lars Skjærven, and Xin-Qiu Yao. 2021. {``The Bio3D
+Packages for Structural Bioinformatics.''} \emph{Protein Science} 30
+(1): 20--30.
+
+\leavevmode\vadjust pre{\hypertarget{ref-skjaerven2014integrating}{}}%
+Skjærven, Lars, Xin-Qiu Yao, Guido Scarabelli, and Barry J Grant. 2014.
+{``Integrating Protein Structural Dynamics and Evolutionary Analysis
+with Bio3D.''} \emph{BMC Bioinformatics} 15 (1): 1--11.
+
+\end{CSLReferences}
+
+\end{document}
