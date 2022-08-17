@@ -14,7 +14,6 @@ project/
 *    │   ├── raw
 *    │   └── processed
      ├── docs/
-     ├── figs/
 *    ├── R/
 *    └── README.md
 ```
