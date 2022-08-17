@@ -20,3 +20,5 @@ project/
 ```
 
 Get started with protein structure evaluation!
+
+OS: Linux, Windows or MAC.
