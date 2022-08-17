@@ -10,12 +10,12 @@ In 'R' the scripts.
 
 ```
 project/
-*    ├── data/
-*    │   ├── raw
-*    │   └── processed
-     ├── docs/
-*    ├── R/
-*    └── README.md
+    ├── data/
+    │   ├── raw
+    │   └── processed
+    ├── docs/
+    ├── R/
+    └── README.md
 ```
 
 Get started with protein structure evaluation!
